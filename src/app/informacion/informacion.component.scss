@@ -1,2 +1,16 @@
+div {
+  display: grid;
+  grid-template-columns: 1fr;
+   p {
+     display: block;
 
+     span {
+      margin: 30px 20px;
+       img {
+         margin-top: 40px;
+         width: 70%;
+       }
+     }
+   }
+}
 
