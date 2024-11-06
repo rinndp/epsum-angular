@@ -1,0 +1,142 @@
+<h1>Solo un h1 {{nombre}}</h1>
+
+<h2>Primer h2 {{edad}} años</h2>
+<h2>Segundo h2</h2>
+<h2>Tercer h2</h2>
+
+<h3>Primer h3</h3>
+<h3>Segundo h3</h3>
+<h3 class="{{ (cambioColor) == true ? 'blue' : 'red'}}" >Tercer h3</h3>
+
+<button type="button" (click)="toggleColor()">Cambiar</button>
+<br>
+<br>
+<br>
+<p class="{{ (cambiarDisplay) == false ? 'ocultar':null}}">Holaaaaaa</p>
+<button type="button" (click)="toggleDisplay()">Ver u ocultar</button>
+
+<div>
+  Esto es un contenedor
+</div>
+
+<br>
+
+<header>
+  Aqui el logo
+  <br>
+  Menu (tendremos el bocadillo - lista - del menú)
+</header>
+
+<br>
+
+<div *ngIf="elementos.length > 0">
+  <p *ngFor="let elemento of elementos">
+     {{elemento}}
+  </p>
+</div>
+
+<br>
+<hr>
+<br>
+
+<div *ngIf="elementos2.length > 0">
+  <p *ngFor="let elemento2 of elementos2">
+    <span>ID: {{elemento2.id}}</span><br>
+    <span>Nombre: {{elemento2.nombre}}</span><br><br>
+  </p>
+
+</div>
+
+<br>
+
+<footer>
+  Aqui el contenido legal, información de la app que no es relevante
+  <br>
+  Elemento Copyright y quien diseño la app o la versión de la app
+</footer>
+
+<br>
+
+<p>
+   Lorem ipsum
+</p>
+
+<br>
+
+<p>
+  <span style="font-weight: bold">Lorem ipsum</span> hola k tal <sub>todo</sub> bien yo eztoy
+  bien <b>t yut lol</b> el oul el <strong>lorem ipsum</strong> no me <sup>va</sup> lol xd k loko no
+</p>
+
+<br>
+
+<main>
+  <section>Imágen principal</section>
+  <section>Carrusel de imágenes</section>
+  <section>Formulario de contacto</section>
+  <section>Formulario de login</section>
+</main>
+<br>
+<form method="post" action="login.php" enctype="multipart/form-data">
+  <div>
+    <label for="username">Usuario</label>
+    <input type="text" id ="username" name="usuario" placeholder="introduzca el usuario" value="Axel" autocomplete="on" required>
+  </div>
+  <div>
+    <label for="password">Contraseña</label>
+    <input type="password" id ="password" name="password" placeholder="introduzca la contraseña" value="*********" autocomplete="on" required>
+  </div>
+  <div>
+    <label for="rol">Rol</label>
+    <select id ="rol" name="rol" required>
+      <option value="estudiante">Estudiante</option>
+      <option value="profesor" selected>Profesor</option>
+    </select>
+  </div>
+  <div>
+      Selecciona el curso:
+      <input type="radio" id="primerCurso" name="cursos"><label for="primerCurso">Primer curso</label>
+      <input type="radio" id="segundoCurso" name="cursos"><label for="segundoCurso">Segundo curso</label>
+  </div>
+
+  <div>
+    Asignaturas:
+    <input type="checkbox" name="subjects" id="datos" checked required><label for="datos">Acceso a datos</label>
+    <input type="checkbox" name="subjects" id="interfaces"><label for="datos">Desarrollo de interfaces</label>
+  </div>
+
+  <div>
+    <label for="message">Mensaje:</label>
+    <textarea placeholder="Mensaje" id="message" required></textarea>
+  </div>
+<hr>
+  <div>
+    <button type="submit">Enviar</button>
+  </div>
+</form>
+
+<br>
+
+<ul class="margin-bottom">
+  <li>Primer elemento</li>
+  <li>Segundo elemento</li>
+  <li>Tercer elemento</li>
+</ul>
+
+<br>
+
+<ol class="contenedor-100">
+  <li >Primer elemento</li>
+                                                                                                                                                                                                                                                                                                                                                                                   <li>Segundo elemento</li>
+  <li>Tecer elemento</li>
+  </ol>
+<br>
+<br>
+
+
+
+
+
+
+
+
