@@ -10,6 +10,7 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { InformacionComponent } from './informacion/informacion.component';
 import { HomeComponent } from './home/home.component';
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
     RepasoComponent,
     FormularioComponent,
     InformacionComponent,
-    HomeComponent
+    HomeComponent,
+    ModalComponent
   ],
     imports: [
         BrowserModule,

@@ -2,14 +2,44 @@ div {
   display: grid;
   grid-template-columns: 1fr;
    p {
+     box-shadow: 0 2px 3px black;
+     padding: 20px;
      display: block;
+     margin: 0px 50px 20px;
 
+     &:first-child {
+       margin-top: 60px;
+     }
      span {
-      margin: 30px 20px;
        img {
-         margin-top: 40px;
+         margin: 40px 20px;
          width: 70%;
        }
+     }
+     .nombre {
+       text-transform: uppercase;
+       color: #015454;
+       font-weight: bold;
+       font-size: 20px;
+     }
+
+     .id {
+       color: #725902;
+       font-weight: bold;
+     }
+     button {
+       display: block;
+       margin: 0 auto;
+       border-radius: 10px;
+       color: white;
+       background-color: rgba(21, 66, 66, 0.91);
+       outline: none;
+       cursor: pointer;
+       border: gray solid 1px;
+       width: 200px;
+       padding: 13px;
+       font-size: 17px;
+       transition: .30s all;
      }
    }
 }

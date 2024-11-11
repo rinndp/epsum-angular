@@ -1,0 +1,40 @@
+.showInfo {
+  &, * {
+    box-sizing: border-box;
+  }
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,0.8);
+  div {
+    width: 90%;
+    background-color: white;
+    margin: 80px auto;
+    position: relative;
+    padding: 20px 15px;
+
+    button {
+      position: absolute;
+      right: 15px;
+      top : 15px;
+
+    }
+
+    h2 {
+      width: 100%;
+      margin: 15px 0 10px;
+      border-bottom: 1px solid lightgreen;
+      padding-bottom: 5px;
+    }
+
+    img {
+      width: 80%;
+      display: block;
+      margin: 0 auto 10px;
+    }
+  }
+}
