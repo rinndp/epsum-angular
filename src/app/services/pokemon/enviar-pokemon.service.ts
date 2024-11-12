@@ -14,6 +14,5 @@ export class EnviarPokemonService {
 
   updatePokemon (info: Pokemon | null) {
     this.pokemon.next(info)
-
   }
 }

@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Pokemon} from "../services/interfaces/pokemon";
+import {Pokemon, PokemonApi} from "../services/interfaces/pokemon";
 import {InformacionService} from '../services/modales/informacion.service';
-import {FormControl} from '@angular/forms';
 import {EnviarPokemonService} from '../services/pokemon/enviar-pokemon.service';
+import {PokemonApiService} from '../services/pokemon/pokemon-api.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-informacion',
@@ -12,16 +13,36 @@ import {EnviarPokemonService} from '../services/pokemon/enviar-pokemon.service';
 export class InformacionComponent implements OnInit{
   toggleInfo: boolean = false;
 
+  pokemonsApi: PokemonApi [] = []
+
   constructor(
     private informacionService: InformacionService,
-    private enviarPokemonService: EnviarPokemonService
+    private enviarPokemonService: EnviarPokemonService,
+    private pokemonApiService: PokemonApiService,
+    private router: Router
   ){}
 
   ngOnInit() {
     this.informacionService.modal$.subscribe(modal => {
       this.toggleInfo = modal
-
     });
+
+    this.pokemonApiService.getAllPokemon().subscribe({
+      next: data => {
+        this.pokemonsApi = data.results
+        console.log(this.pokemonsApi)
+      },
+
+      error: error => {
+        console.log(error)
+
+      },
+
+      complete: () => {
+        console.log("comunicación finalizada")
+
+      }
+    })
   }
 
   mostrarModal (pk: Pokemon) {
@@ -39,4 +60,12 @@ export class InformacionComponent implements OnInit{
     {id:5, nombre: "Cojones", descripcion: "Un Pokémon de pura fuerza. Su cuerpo de acero y su voluntad inquebrantable hacen de Cojones una máquina imparable en combate.\n" +
         "\n", imagen_url: "https://images.wikidexcdn.net/mwuploads/wikidex/thumb/2/28/latest/20190709103841/Duraludon.png/800px-Duraludon.png"},
   ]
+
+  detallesPokemon (nombre: string) {
+
+    this.router.navigate([`detalles`])
+  }
+
+
+
 }

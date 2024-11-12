@@ -11,6 +11,8 @@ import { InformacionComponent } from './informacion/informacion.component';
 import { HomeComponent } from './home/home.component';
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import { ModalComponent } from './modal/modal.component';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { ModalComponent } from './modal/modal.component';
     FormularioComponent,
     InformacionComponent,
     HomeComponent,
-    ModalComponent
+    ModalComponent,
+    PokemonDetailsComponent
   ],
     imports: [
         BrowserModule,
@@ -29,7 +32,11 @@ import { ModalComponent } from './modal/modal.component';
         ReactiveFormsModule,
         FormsModule
     ],
-  providers: [],
+  providers: [
+    provideHttpClient(
+     withInterceptorsFromDi()
+    )
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
