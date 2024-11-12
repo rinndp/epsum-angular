@@ -4,6 +4,7 @@ import {InformacionService} from '../services/modales/informacion.service';
 import {EnviarPokemonService} from '../services/pokemon/enviar-pokemon.service';
 import {PokemonApiService} from '../services/pokemon/pokemon-api.service';
 import {Router} from '@angular/router';
+import {PokemonDetailsService} from '../services/pokemon/pokemon-details.service';
 
 @Component({
   selector: 'app-informacion',
@@ -19,6 +20,7 @@ export class InformacionComponent implements OnInit{
     private informacionService: InformacionService,
     private enviarPokemonService: EnviarPokemonService,
     private pokemonApiService: PokemonApiService,
+    private pokemonDetailsService: PokemonDetailsService,
     private router: Router
   ){}
 
@@ -61,11 +63,8 @@ export class InformacionComponent implements OnInit{
         "\n", imagen_url: "https://images.wikidexcdn.net/mwuploads/wikidex/thumb/2/28/latest/20190709103841/Duraludon.png/800px-Duraludon.png"},
   ]
 
-  detallesPokemon (nombre: string) {
-
+  detallesPokemon (pk: PokemonApi) {
+    this.pokemonDetailsService.updatePokemonApi(pk)
     this.router.navigate([`detalles`])
   }
-
-
-
 }

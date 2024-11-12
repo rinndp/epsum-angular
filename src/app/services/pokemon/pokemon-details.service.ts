@@ -15,5 +15,4 @@ export class PokemonDetailsService {
   updatePokemonApi (pokemon: PokemonApi | null) {
     this.pokemonApi.next(pokemon)
   }
-
 }
