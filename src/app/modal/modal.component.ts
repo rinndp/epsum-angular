@@ -22,14 +22,14 @@ export class ModalComponent implements OnInit{
 
   ){}
 
-ngOnInit() {
-    this.enviarPokemonService.info$.subscribe(pokemon => {
-      this.pokemon = pokemon
-    })
-}
+  ngOnInit() {
+      this.enviarPokemonService.info$.subscribe(pk => {
+        this.pokemon = pk
+      })
+  }
 
-  cerrarModal () {
+  closeModal () {
     this.enviarPokemonService.updatePokemon(null)
-    this.informacionService.toggleModal(false)
+    this.informacionService.updateToggleStatus(false)
   }
 }

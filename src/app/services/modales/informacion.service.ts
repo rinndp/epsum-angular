@@ -12,8 +12,7 @@ export class InformacionService {
 
   constructor() { }
 
-  toggleModal (mostrar: boolean) {
+  updateToggleStatus (mostrar: boolean) {
     this.toggleInfo.next(mostrar)
-
   }
 }

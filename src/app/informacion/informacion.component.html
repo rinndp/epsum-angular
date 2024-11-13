@@ -4,14 +4,14 @@
     <span class="nombre">{{pokemon1.nombre}}</span><br>
     <span>{{pokemon1.descripcion}}</span><br>
     <span><img src="{{pokemon1.imagen_url}}"></span><br>
-    <button type="button" (click)="mostrarModal(pokemon1)">Ver información</button>
+    <button type="button" (click)="showModal(pokemon1)">Ver información</button>
   </p>
 </div>
 
 <div *ngIf="pokemonsApi.length > 0">
   <p *ngFor="let pokemon1 of pokemonsApi">
     <span class="nombre">{{pokemon1.name}}</span><br>
-    <button type="button" (click)="detallesPokemon(pokemon1)">Ver información</button>
+    <button type="button" (click)="showPokemonInfo(pokemon1)">Ver información</button>
   </p>
 </div>
 

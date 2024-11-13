@@ -14,6 +14,7 @@ import {PokemonDetailsService} from '../services/pokemon/pokemon-details.service
 export class InformacionComponent implements OnInit{
   toggleInfo: boolean = false;
 
+  //Creamos array donde guardar todos los pokemos extraidos de la api
   pokemonsApi: PokemonApi [] = []
 
   constructor(
@@ -24,32 +25,45 @@ export class InformacionComponent implements OnInit{
     private router: Router
   ){}
 
-  ngOnInit() {
-    this.informacionService.modal$.subscribe(modal => {
-      this.toggleInfo = modal
-    });
+  //Inicializamos los métodos
 
+  ngOnInit() {
+    this.saveToggleStatus()
+    this.saveAllPokemonsFromApi()
+  }
+
+  showModal (pk: Pokemon) {
+    this.enviarPokemonService.updatePokemon(pk)
+    this.informacionService.updateToggleStatus(true)
+  }
+
+  saveAllPokemonsFromApi () {
     this.pokemonApiService.getAllPokemon().subscribe({
       next: data => {
         this.pokemonsApi = data.results
         console.log(this.pokemonsApi)
       },
-
       error: error => {
         console.log(error)
 
       },
-
       complete: () => {
         console.log("comunicación finalizada")
-
       }
     })
+}
+
+  saveToggleStatus () {
+    this.informacionService.modal$.subscribe(modal => {
+      this.toggleInfo = modal
+    });
   }
 
-  mostrarModal (pk: Pokemon) {
-    this.enviarPokemonService.updatePokemon(pk)
-    this.informacionService.toggleModal(true)
+
+  //Creamos un metodo para el boton de "Más información", asi capturamos la información del pokemon deseado
+  showPokemonInfo (pk: PokemonApi) {
+    this.pokemonDetailsService.updatePokemonApi(pk)
+    this.router.navigate([`detalles`])
   }
 
   pokemon: Pokemon [] = [
@@ -62,9 +76,8 @@ export class InformacionComponent implements OnInit{
     {id:5, nombre: "Cojones", descripcion: "Un Pokémon de pura fuerza. Su cuerpo de acero y su voluntad inquebrantable hacen de Cojones una máquina imparable en combate.\n" +
         "\n", imagen_url: "https://images.wikidexcdn.net/mwuploads/wikidex/thumb/2/28/latest/20190709103841/Duraludon.png/800px-Duraludon.png"},
   ]
-
-  detallesPokemon (pk: PokemonApi) {
-    this.pokemonDetailsService.updatePokemonApi(pk)
-    this.router.navigate([`detalles`])
-  }
 }
+
+
+
+
