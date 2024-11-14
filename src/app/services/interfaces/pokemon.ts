@@ -9,3 +9,9 @@ export interface PokemonApi {
   name: string
   url: string
 }
+
+export interface PokemonType {
+  types: string []
+}
+
+

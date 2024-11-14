@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PokemonDetailsService} from '../services/pokemon/pokemon-details.service';
-import {Pokemon, PokemonApi} from '../services/interfaces/pokemon';
+import {Pokemon, PokemonApi, PokemonType} from '../services/interfaces/pokemon';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -14,6 +14,11 @@ export class PokemonDetailsComponent implements OnInit{
     name: "",
     url: "",
   }
+
+  pokemonType: PokemonType = {
+    types: []
+  }
+
 
   //Creamos un objeto "any" en donde guardaremos todos los detalles del pokemon del json
   pokemonDetalles: any
@@ -38,6 +43,14 @@ export class PokemonDetailsComponent implements OnInit{
     this.http.get<any>(<string>this.pokemon?.url).subscribe(detallesPokemon => {
       console.log(detallesPokemon)
       this.pokemonDetalles = detallesPokemon
+
+      this.pokemonType = {
+        types: []
+      }
+
+      for (let i = 0; i < detallesPokemon.types.length; i++) {
+        this.pokemonType.types.push(detallesPokemon.types[i].type.name)
+      }
     })
   }
 }
