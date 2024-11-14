@@ -34,10 +34,10 @@ export class PokemonDetailsComponent implements OnInit{
 
   //Metodo para conseguir todos los datos del json de la PokemonApi
   getAllPokemonData () {
-    //Si utilizamos la URl del atributo de pokemonApi es IGUAL
-    this.http.get<any>('https://pokeapi.co/api/v2/pokemon/'+this.pokemon?.name).subscribe(data => {
-      console.log(data)
-      this.pokemonDetalles = data
+    //Si utilizamos la URl del atributo de pokemonApi es IGUAL ('https://pokeapi.co/api/v2/pokemon/'+this.pokemon?.name)
+    this.http.get<any>(<string>this.pokemon?.url).subscribe(detallesPokemon => {
+      console.log(detallesPokemon)
+      this.pokemonDetalles = detallesPokemon
     })
   }
 }
